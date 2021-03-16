@@ -429,7 +429,7 @@ instance (FromConfigG inner, Selector selector) =>
 
       fieldName = Text.pack $ selName @selector undefined
       prefix = applyFirst Char.toLower $ Text.pack s
-      underscorePrefix = "_" <> Text.pack s <> "_"
+      underscorePrefix = "_" <> prefix <> "_"
       scopedKey =
         case Text.stripPrefix prefix fieldName of
           Just stripped -> applyFirst Char.toLower stripped
@@ -478,7 +478,7 @@ instance (IntoDefaultsG inner, Selector selector) =>
 
       fieldName = Text.pack $ selName @selector undefined
       prefix = applyFirst Char.toLower $ Text.pack s
-      underscorePrefix = "_" <> Text.pack s <> "_"
+      underscorePrefix = "_" <> prefix <> "_"
       scopedKey =
         case Text.stripPrefix prefix fieldName of
           Just stripped -> applyFirst Char.toLower stripped
